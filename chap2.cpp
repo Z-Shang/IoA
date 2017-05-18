@@ -4,6 +4,7 @@
 #include <functional>
 #include <cmath>
 #include <limits>
+
 using namespace std;
 
 template <typename T, std::size_t SIZE, typename F>
