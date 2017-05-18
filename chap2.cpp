@@ -24,25 +24,32 @@ void insertion_sort(std::array<T, SIZE> &arr, F &&pred)
 }
 
 template <typename T, std::size_t SIZE, typename F>
-void merge(std::array<T, SIZE> &arr, int p, int q, int r, F &&pred){
+void merge(std::array<T, SIZE> &arr, int p, int q, int r, F &&pred)
+{
 	int n_1 = q - p + 1;
 	int n_2 = r - q;
 	std::vector<T> L;
 	std::vector<T> R;
-	for(int i = 0; i < n_1; i++){
+	for (int i = 0; i < n_1; i++)
+	{
 		L.push_back(arr.at(p + i));
 	}
-	for(int i = 0; i < n_2; i++){
+	for (int i = 0; i < n_2; i++)
+	{
 		R.push_back(arr.at(q + i + 1));
 	}
 	L.push_back(std::numeric_limits<T>::max());
 	R.push_back(std::numeric_limits<T>::max());
 	int i = 0, j = 0;
-	for(int k = p; k < r + 1; k++){
-		if(pred(L.at(i), R.at(j))){
+	for (int k = p; k < r + 1; k++)
+	{
+		if (pred(L.at(i), R.at(j)))
+		{
 			arr.at(k) = L.at(i);
 			i++;
-		}else{
+		}
+		else
+		{
 			arr.at(k) = R.at(j);
 			j++;
 		}
@@ -52,7 +59,8 @@ void merge(std::array<T, SIZE> &arr, int p, int q, int r, F &&pred){
 template <typename T, std::size_t SIZE, typename F>
 void merge_sort(std::array<T, SIZE> &arr, int p, int r, F &&pred)
 {
-	if(p < r){
+	if (p < r)
+	{
 		T q = (int)std::floor((p + r) / 2);
 		merge_sort(arr, p, q, pred);
 		merge_sort(arr, q + 1, r, pred);
