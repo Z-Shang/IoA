@@ -7,7 +7,7 @@
 using namespace std;
 
 template <typename T, std::size_t SIZE, typename F>
-void insertion_sort(std::array<T, SIZE> &arr, F &&pred) // -> std::array<T, SIZE>
+void insertion_sort(std::array<T, SIZE> &arr, F &&pred)
 {
 	for (int i = 1; i < SIZE; i++)
 	{
@@ -49,7 +49,7 @@ void merge(std::array<T, SIZE> &arr, int p, int q, int r, F &&pred){
 }
 
 template <typename T, std::size_t SIZE, typename F>
-void merge_sort(std::array<T, SIZE> &arr, int p, int r, F &&pred) // -> std::array<T, SIZE>
+void merge_sort(std::array<T, SIZE> &arr, int p, int r, F &&pred)
 {
 	if(p < r){
 		T q = (int)std::floor((p + r) / 2);
